@@ -1,0 +1,31 @@
+<button (click)="openPopup()">Add</button>
+
+<ng-container *ngIf="selected">
+  <div class="background"></div>
+  <div class="popup">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Задание</mat-label>
+      <input matInput [(ngModel)]="header">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Описание</mat-label>
+      <input matInput [(ngModel)]="description">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="datepicker" [(ngModel)]="deadline">
+      <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+      <mat-datepicker #datepicker></mat-datepicker>
+    </mat-form-field>
+    <br>
+
+    <button (click)="addTaskToStorage(); closePopup()">Добавить</button>
+
+    <button class="closeButton" (click)="closePopup()">X</button>
+  </div>
+</ng-container>

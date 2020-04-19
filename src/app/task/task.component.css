@@ -1,0 +1,31 @@
+.task {
+  border: 1px solid black;
+  margin: 5px 0px;
+}
+
+.task-done {
+  text-decoration: line-through;
+}
+
+.closeButton {
+  position:absolute; top:0; right:0;
+  border: 0;
+  background: none;
+}
+
+.background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0,0,0,0.7);
+}
+
+.popup {
+  position: fixed;
+  width: 50%;
+  left: 25%;
+  top: 25%;
+  background: #eeeeee;
+}

@@ -1,0 +1,36 @@
+<div (click)="openPopup()"
+  class="task"
+  [ngClass]="{'task-done' : task.done}">
+
+  <input type="checkbox"
+         (click)="$event.stopPropagation()"
+         [(ngModel)]="task.done"
+  >
+  <span>{{task.header}}</span>
+  <button (click)=$event.stopPropagation()>Удалить</button>
+</div>
+
+<ng-container *ngIf="selected">
+  <div class="background"></div>
+  <div class="popup">
+    <mat-form-field appearance="fill">
+      <mat-label>Название</mat-label>
+      <span>{{task.header}}}</span>>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Описание</mat-label>
+      <span>{{task.description}}</span>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Срок задачи</mat-label>
+      <input matInput [matDatepicker]="datepicker">{{task.deadline|date|uppercase}}
+      <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+      <mat-datepicker #datepicker></mat-datepicker>
+    </mat-form-field>
+    <br>
+    <button (click)="$event.stopPropagation()">Редактировать</button>
+    <button class="closeButton" (click)="closePopup()">X</button>
+   </div>
+</ng-container>

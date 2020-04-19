@@ -1,0 +1,25 @@
+.item-done {
+  text-decoration: line-through;
+}
+
+.item:hover {
+  background: #666666;
+  cursor: pointer;
+}
+
+.moveButtons {
+  float: right;
+}
+
+button:hover {
+  color: #af5b5e;
+  cursor: pointer;
+}
+
+.closeButton {
+  position:absolute; top:0; right:0;
+  border: 0;
+  background: none;
+}
+
+
