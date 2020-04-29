@@ -5,7 +5,8 @@ import {TaskListComponent} from './task-list/task-list.component';
 
 const routes: Routes = [
   { path: 'Tasks', component: TaskListComponent },
-  { path: 'Tasks/:taskId', component: TaskComponent }
+  { path: 'Tasks/:taskId', component: TaskComponent },
+  { path: '**', redirectTo: '/Tasks'}
 ];
 
 @NgModule({
