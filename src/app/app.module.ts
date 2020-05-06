@@ -1,4 +1,4 @@
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -40,7 +40,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatNativeDateModule,
     RouterModule,
     AppRoutingModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [TaskStorageService],
   bootstrap: [AppComponent]

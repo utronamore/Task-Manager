@@ -6,9 +6,13 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Задание</mat-label>
-      <input matInput [(ngModel)]="header">
+      <input #_header="ngModel" required matInput [(ngModel)]="header">
     </mat-form-field>
     <br>
+
+    <div style = "color:red" *ngIf="_header.invalid && _header.touched">
+      Заполните задание
+    </div>
 
     <mat-form-field appearance="fill">
       <mat-label>Описание</mat-label>
@@ -24,7 +28,7 @@
     </mat-form-field>
     <br>
 
-    <button (click)="addTaskToStorage(); closePopup()">Добавить</button>
+    <button [disabled]="_header.invalid" (click)="addTaskToStorage(); closePopup()">Добавить</button>
 
     <button class="closeButton" (click)="closePopup()">X</button>
   </div>
