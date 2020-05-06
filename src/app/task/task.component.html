@@ -30,6 +30,6 @@
       <mat-datepicker #datepicker></mat-datepicker>
     </mat-form-field>
     <br>
-    <a routerLink="/tasks/{{task.taskId}}/edit"><button (click)="$event.stopPropagation()">Редактировать</button></a>
+    <a routerLink="/tasks/{{task.taskId}}/edit" routerLinkActive="active-link"><button>Редактировать</button></a>
    </div>
 </ng-container>
