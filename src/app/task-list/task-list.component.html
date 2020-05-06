@@ -2,7 +2,8 @@
 <div>
   <app-task *ngFor="let t of tasks; let idx = index"
             [task]=t
-            routerLink="/Tasks/{{t.taskId}}"
+            routerLink="/tasks/{{t.taskId}}"
   ></app-task>
 </div>
+
 

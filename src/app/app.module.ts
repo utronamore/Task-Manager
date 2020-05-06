@@ -17,6 +17,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {TaskComponent} from './task/task.component';
 import {RouterModule} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { AppRoutingModule } from './app-routing.module';
     MatInputModule,
     MatNativeDateModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatCheckboxModule
   ],
   providers: [TaskStorageService],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Task} from 'src/app/task';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import {TaskStorageService} from '../task-storage.service';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-task',
@@ -19,6 +20,7 @@ export class TaskComponent implements OnInit {
   @Input() task: Task;
   selected = false;
 
+  // These 2 functions should be deleted
   openPopup(): void {
     this.selected = true;
   }
@@ -30,10 +32,15 @@ export class TaskComponent implements OnInit {
     const id = + this.route.snapshot.paramMap.get('taskId');
     this.service.getTaskFromStorage(id)
       .subscribe(task => this.task = task);
+    this.selected = true;
   }
 
   ngOnInit(): void {
-    this.getTaskFromStorage()
+    if (!this.task) {
+      this.getTaskFromStorage();
+    }
     console.log(this.task);
   }
+
+
 }

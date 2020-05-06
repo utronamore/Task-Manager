@@ -29,3 +29,8 @@
   top: 25%;
   background: #eeeeee;
 }
+
+button:hover {
+  color: #af5b5e;
+  cursor: pointer;
+}

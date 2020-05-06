@@ -1,5 +1,4 @@
 <ng-container *ngIf="selected">
-  <div class="background"></div>
   <div class="popup">
     <mat-form-field appearance="fill">
       <mat-label>Задание</mat-label>
@@ -18,7 +17,5 @@
       <mat-datepicker #datepicker></mat-datepicker>
     </mat-form-field>
     <br>
-    <button class="closeButton" (click)="closePopup()">X</button>
-    <button (click)="closePopup()">Сохранить</button>
   </div>
 </ng-container>

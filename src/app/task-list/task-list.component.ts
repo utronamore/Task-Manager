@@ -24,20 +24,20 @@ export class TaskListComponent implements OnInit {
   }
 
   deleteTaskFromList(index: number): void {
-    this.TaskStorageService.deleteTask(index);
+    this.taskStorageService.deleteTask(index);
   }
 
   moveTask(index: number, direction: boolean): void {
-    this.TaskStorageService.moveTask(index, direction);
+    this.taskStorageService.moveTask(index, direction);
   }
 
   // tslint:disable-next-line:no-shadowed-variable
-  constructor(private TaskStorageService: TaskStorageService,
+  constructor(private taskStorageService: TaskStorageService,
               private route: ActivatedRoute
   ) {}
 
   getTasks(): void {
-    this.tasks = this.TaskStorageService.getTasks();
+    this.tasks = this.taskStorageService.getTasks();
   }
 
   ngOnInit() {
