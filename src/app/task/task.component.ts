@@ -3,6 +3,7 @@ import {Task} from 'src/app/task';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import {TaskStorageService} from '../task-storage.service';
 import {FormsModule} from '@angular/forms';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-task',
@@ -29,9 +30,10 @@ export class TaskComponent implements OnInit {
   }
 
   getTaskFromStorage(): void {
-    const id = + this.route.snapshot.paramMap.get('taskId');
-    this.service.getTaskFromStorage(id)
-      .subscribe(task => this.task = task);
+    this.route.paramMap.subscribe(params => {
+      this.service.getTaskFromStorage(+params.get('taskId'))
+        .subscribe(task => this.task = task);
+  });
     this.selected = true;
   }
 
@@ -41,6 +43,5 @@ export class TaskComponent implements OnInit {
     }
     console.log(this.task);
   }
-
-
 }
+

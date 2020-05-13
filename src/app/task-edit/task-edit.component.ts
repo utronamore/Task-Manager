@@ -22,9 +22,10 @@ export class TaskEditComponent implements OnInit {
   }
 
   getTaskFromStorage(): void {
-    const id = + this.route.snapshot.paramMap.get('taskId');
-    this.service.getTaskFromStorage(id)
-      .subscribe(task => this.task = task);
+    this.route.paramMap.subscribe(params => {
+      this.service.getTaskFromStorage(+params.get('taskId'))
+        .subscribe(task => this.task = task);
+    });
     this.selected = true;
   }
 
