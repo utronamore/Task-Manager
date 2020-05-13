@@ -15,7 +15,7 @@ export class TaskComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: TaskStorageService
+    private taskStorageService: TaskStorageService
   ) {}
 
   @Input() task: Task;
@@ -31,7 +31,7 @@ export class TaskComponent implements OnInit {
 
   getTaskFromStorage(): void {
     this.route.paramMap.subscribe(params => {
-      this.service.getTaskFromStorage(+params.get('taskId'))
+      this.taskStorageService.getTaskFromStorage(+params.get('taskId'))
         .subscribe(task => this.task = task);
   });
     this.selected = true;

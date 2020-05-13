@@ -18,6 +18,7 @@ import {TaskComponent} from './task/task.component';
 import {RouterModule} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     AppRoutingModule,
     MatCheckboxModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DragDropModule
   ],
   providers: [TaskStorageService],
   bootstrap: [AppComponent]

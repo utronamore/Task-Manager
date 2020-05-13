@@ -3,6 +3,7 @@ import {Task} from 'src/app/task';
 import {TaskStorageService} from '../task-storage.service';
 import {TaskCreateComponent} from '../task-create/task-create.component';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-task-list',
@@ -38,6 +39,10 @@ export class TaskListComponent implements OnInit {
 
   getTasks(): void {
     this.tasks = this.taskStorageService.getTasks();
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.tasks, event.previousIndex, event.currentIndex);
   }
 
   ngOnInit() {
