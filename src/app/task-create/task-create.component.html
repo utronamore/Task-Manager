@@ -5,17 +5,17 @@
   <div class="popup">
 
     <mat-form-field appearance="fill">
-      <mat-label>Задание</mat-label>
-      <input #_header="ngModel" required matInput [(ngModel)]="header">
+      <mat-label>Task</mat-label>
+      <input [formControl]="headerControl"
+             [(ngModel)]="header"
+             required
+             matInput>
+      <mat-error *ngIf="headerControl.invalid">{{getErrorMessage()}}</mat-error>
     </mat-form-field>
     <br>
 
-    <div style = "color:red" *ngIf="_header.invalid && _header.touched">
-      Заполните задание
-    </div>
-
     <mat-form-field appearance="fill">
-      <mat-label>Описание</mat-label>
+      <mat-label>Description</mat-label>
       <input matInput [(ngModel)]="description">
     </mat-form-field>
     <br>
@@ -28,7 +28,7 @@
     </mat-form-field>
     <br>
 
-    <button [disabled]="_header.invalid" (click)="addTaskToStorage(); closePopup()">Добавить</button>
+    <button [disabled]="headerControl.invalid" (click)="addTaskToStorage(); closePopup(); clearForm() ">Add</button>
 
     <button class="closeButton" (click)="closePopup()">X</button>
   </div>

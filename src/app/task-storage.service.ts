@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-// @ts-ignore
+import {Injectable} from '@angular/core';
 import {Task} from './task';
 import {Observable, of} from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -18,7 +18,7 @@ export class TaskStorageService {
 
   currentId = 1;
 
-  /*метод для получения, надо доработать*/
+  /* Метод для получения, надо доработать */
   getTasks(): Task [] {
     return this.tasks;
   }
@@ -44,7 +44,7 @@ export class TaskStorageService {
     this.tasks.splice(index, 1);
   }
 
-  //метод для добавления, надо доработать
+  /* Метод для добавления, надо доработать */
   addTask(inHeader, inDescription, currentId, inDeadline) {
     this.tasks.push({
       header: inHeader,
@@ -55,7 +55,7 @@ export class TaskStorageService {
     });
   }
 
-  getTaskFromStorage(id: number): Observable <Task> {
+  getTaskFromStorage(id: number): Observable<Task> {
     return of(this.tasks.find(task => task.taskId === id));
   }
 }

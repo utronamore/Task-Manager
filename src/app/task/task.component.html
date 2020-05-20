@@ -1,36 +1,39 @@
 <div *ngIf="selected == false" (click)="openPopup()"
-  class="task"
-  [ngClass]="{'task-done' : task.done}">
+     class="task"
+     [ngClass]="{'task-done' : task.done}">
 
   <mat-checkbox
-         (click)="$event.stopPropagation()"
-         [(ngModel)]="task.done"
+    (click)="$event.stopPropagation()"
+    [(ngModel)]="task.done"
   >
   </mat-checkbox>
   <span>{{task.header}}</span>
   <button mat-button (click)="openDialog()"
-          (click)=$event.stopPropagation()>Delete</button>
+          (click)=$event.stopPropagation()>Delete
+  </button>
 </div>
 
 <ng-container *ngIf="selected == true">
   <div>
     <mat-form-field appearance="fill">
-      <mat-label>Название</mat-label>
+      <mat-label>Task</mat-label>
       <span>{{task.header}}}</span>>
     </mat-form-field>
     <br>
     <mat-form-field appearance="fill">
-      <mat-label>Описание</mat-label>
+      <mat-label>Description</mat-label>
       <span>{{task.description}}</span>
     </mat-form-field>
     <br>
     <mat-form-field>
-      <mat-label>Срок задачи</mat-label>
+      <mat-label>Deadline</mat-label>
       <input matInput [matDatepicker]="datepicker">{{task.deadline|date|uppercase}}
       <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
       <mat-datepicker #datepicker></mat-datepicker>
     </mat-form-field>
     <br>
-    <a routerLink="/tasks/{{task.taskId}}/edit" routerLinkActive="active-link"><button>Редактировать</button></a>
-   </div>
+    <a routerLink="/tasks/{{task.taskId}}/edit" routerLinkActive="active-link">
+      <button>Edit</button>
+    </a>
+  </div>
 </ng-container>
