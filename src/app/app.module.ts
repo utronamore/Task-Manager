@@ -19,6 +19,7 @@ import {RouterModule} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {TaskDeleteComponent} from './task-delete/task-delete.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     TaskCreateComponent,
     CloseQuestionComponent,
     TaskComponent,
-    TaskEditComponent
+    TaskEditComponent,
+    TaskDeleteComponent
   ],
   imports: [
     BrowserModule,
