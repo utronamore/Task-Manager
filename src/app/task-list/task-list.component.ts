@@ -13,6 +13,7 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 export class TaskListComponent implements OnInit {
   @Input() task: Task;
+  @Input() deleteButtonPressed = new EventEmitter<void>();
   @Output() addButtonPressed = new EventEmitter<void>();
 
   tasks: Task[];
@@ -25,20 +26,16 @@ export class TaskListComponent implements OnInit {
   }
 
   deleteTaskFromList(index: number): void {
-    this.taskStorageService.deleteTask(index);
-  }
-
-  moveTask(index: number, direction: boolean): void {
-    this.taskStorageService.moveTask(index, direction);
+    this.TaskStorageService.deleteTask(index);
   }
 
   // tslint:disable-next-line:no-shadowed-variable
-  constructor(private taskStorageService: TaskStorageService,
+  constructor(private TaskStorageService: TaskStorageService,
               private route: ActivatedRoute
   ) {}
 
   getTasks(): void {
-    this.tasks = this.taskStorageService.getTasks();
+    this.tasks = this.TaskStorageService.getTasks();
   }
 
   drop(event: CdkDragDrop<string[]>) {

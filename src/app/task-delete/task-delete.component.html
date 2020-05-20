@@ -1,1 +1,11 @@
-<button mat-button (click)="openDialog()">Delete</button>
+<h2 mat-dialog-title>Delete Task?</h2>
+<mat-dialog-content class="mat-typography">
+  <p>It will be impossible to cancel the action</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button
+          (click)="deleteTask()"
+          [mat-dialog-close]="true"
+          cdkFocusInitial>Delete</button>
+</mat-dialog-actions>
