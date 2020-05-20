@@ -15,7 +15,7 @@ export class TaskComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private TaskStorageService: TaskStorageService,
+    private taskStorageService: TaskStorageService,
     public dialog: MatDialog
   ) {}
 
@@ -32,7 +32,7 @@ export class TaskComponent implements OnInit {
 
   getTaskFromStorage(): void {
     this.route.paramMap.subscribe(params => {
-      this.TaskStorageService.getTaskFromStorage(+params.get('taskId'))
+      this.taskStorageService.getTaskFromStorage(+params.get('taskId'))
         .subscribe(task => this.task = task);
   });
     this.selected = true;
@@ -48,7 +48,7 @@ export class TaskComponent implements OnInit {
   }
 
   deleteTask() {
-    this.TaskStorageService.deleteTask(this.task);
+    this.taskStorageService.deleteTask(this.task);
   }
 
   ngOnInit(): void {

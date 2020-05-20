@@ -18,24 +18,13 @@ export class TaskListComponent implements OnInit {
 
   tasks: Task[];
 
-  currentId = 1;
-
-  addTaskToStorage(): void {
-    this.addButtonPressed.emit();
-    console.log('addButtonPressed');
-  }
-
-  deleteTaskFromList(index: number): void {
-    this.TaskStorageService.deleteTask(index);
-  }
-
   // tslint:disable-next-line:no-shadowed-variable
-  constructor(private TaskStorageService: TaskStorageService,
+  constructor(private taskStorageService: TaskStorageService,
               private route: ActivatedRoute
   ) {}
 
   getTasks(): void {
-    this.tasks = this.TaskStorageService.getTasks();
+    this.tasks = this.taskStorageService.getTasks();
   }
 
   drop(event: CdkDragDrop<string[]>) {
