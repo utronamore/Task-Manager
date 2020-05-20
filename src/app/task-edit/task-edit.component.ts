@@ -33,5 +33,6 @@ export class TaskEditComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private taskStorageService: TaskStorageService
-  ) {}
+  ) {
+  }
 }
