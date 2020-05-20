@@ -39,10 +39,10 @@ export class TaskStorageService {
     }
   }
 
-  deleteTask(index): void {
+  deleteTask(task): void {
+    const index = this.tasks.indexOf(task);
     this.tasks.splice(index, 1);
   }
-
 
   //метод для добавления, надо доработать
   addTask(inHeader, inDescription, currentId, inDeadline) {

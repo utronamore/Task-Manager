@@ -1,9 +1,9 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Task} from 'src/app/task';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import {TaskStorageService} from '../task-storage.service';
-import {FormsModule} from '@angular/forms';
-import {switchMap} from 'rxjs/operators';
+import {MatDialog} from '@angular/material/dialog';
+import {TaskDeleteComponent} from '../task-delete/task-delete.component';
 
 @Component({
   selector: 'app-task',
@@ -15,7 +15,8 @@ export class TaskComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private taskStorageService: TaskStorageService
+    private TaskStorageService: TaskStorageService,
+    public dialog: MatDialog
   ) {}
 
   @Input() task: Task;
@@ -31,10 +32,23 @@ export class TaskComponent implements OnInit {
 
   getTaskFromStorage(): void {
     this.route.paramMap.subscribe(params => {
-      this.taskStorageService.getTaskFromStorage(+params.get('taskId'))
+      this.TaskStorageService.getTaskFromStorage(+params.get('taskId'))
         .subscribe(task => this.task = task);
   });
     this.selected = true;
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(TaskDeleteComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+      if (result) {this.deleteTask(); }
+    });
+  }
+
+  deleteTask() {
+    this.TaskStorageService.deleteTask(this.task);
   }
 
   ngOnInit(): void {

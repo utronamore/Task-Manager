@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-task-delete',
@@ -6,24 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task-delete.component.css']
 })
 export class TaskDeleteComponent implements OnInit {
-
-  selected = false;
-
-  openPopup(): void {
-    this.selected = true;
-  }
-  closePopup(): void {
-    this.selected = false;
-  }
-
-  deleteTodo(): void {
-    this.deleteButtonPressed.emit();
-    console.log('Deletetodo');
-  }
-
   constructor() { }
 
-  ngOnInit(): void {
+  @Output() deleteButtonPressed = new EventEmitter<void>();
+
+  deleteTask(): void {
+    this.deleteButtonPressed.emit();
+    console.log('DeleteTask');
   }
+
+  ngOnInit(): void {}
 
 }

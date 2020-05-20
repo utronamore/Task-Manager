@@ -1,24 +1,11 @@
-<ng-container *ngIf="selected">
-  <div class="background"></div>
-  <div class="popup">
-    <mat-form-field appearance="fill">
-      <mat-label>Название</mat-label>
-      <input matInput [(ngModel)]="item.header">
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="fill">
-      <mat-label>Описание</mat-label>
-      <input matInput [(ngModel)]="item.text">
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-      <mat-label>Choose a date</mat-label>
-      <input matInput [matDatepicker]="datepicker" [(ngModel)]="item.deadLine">
-      <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-      <mat-datepicker #datepicker></mat-datepicker>
-    </mat-form-field>
-    <br>
-    <button class="closeButton" (click)="closePopup()">X</button>
-    <button (click)="deleteTodo()">Delete</button>
-  </div>
-</ng-container>
+<h2 mat-dialog-title>Delete Task?</h2>
+<mat-dialog-content class="mat-typography">
+  <p>It will be impossible to cancel the action</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button
+          (click)="deleteTask()"
+          [mat-dialog-close]="true"
+          cdkFocusInitial>Delete</button>
+</mat-dialog-actions>
