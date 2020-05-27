@@ -1,5 +1,5 @@
 <div *ngIf="selected == false" (click)="openPopup()"
-     class="task"
+     class="task {{changeColor(task)}}"
      [ngClass]="{'task-done' : task.done}">
 
   <mat-checkbox
@@ -7,7 +7,11 @@
     [(ngModel)]="task.done"
   >
   </mat-checkbox>
-  <span>{{task.header}}</span>
+  <span>{{task.header}}
+    <br>
+    {{task.deadline|date|uppercase}}
+  </span>
+
   <button mat-button (click)="openDialog()"
           (click)=$event.stopPropagation()>Delete
   </button>
