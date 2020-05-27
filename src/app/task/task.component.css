@@ -34,3 +34,15 @@ button:hover {
   color: #af5b5e;
   cursor: pointer;
 }
+
+.overdue{
+  background-color: darksalmon;
+}
+
+.hurry{
+  background-color: palegoldenrod;
+}
+
+.non-urgent{
+  background-color: lightblue ;
+}
