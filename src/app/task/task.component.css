@@ -1,6 +1,14 @@
 .task {
-  border: 1px solid black;
-  margin: 5px 0px;
+  border: 1px solid;
+  cursor: pointer;
+  width: 500px;
+  max-width: 100%;
+  min-height: 60px;
+  display: block;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  font-size: 15pt;
 }
 
 .task-done {
@@ -8,7 +16,9 @@
 }
 
 .closeButton {
-  position:absolute; top:0; right:0;
+  position: absolute;
+  top: 0;
+  right: 0;
   border: 0;
   background: none;
 }
@@ -19,7 +29,7 @@
   height: 100%;
   left: 0;
   top: 0;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .popup {
@@ -35,14 +45,41 @@ button:hover {
   cursor: pointer;
 }
 
-.overdue{
-  background-color: darksalmon;
+.task-overdue {
+  background-color: #e9967a;
 }
 
-.hurry{
-  background-color: palegoldenrod;
+.task-overdue:hover {
+  background-color: #c27664;
 }
 
-.non-urgent{
-  background-color: lightblue ;
+.task-hurry {
+  background-color: #eee8aa;
+}
+
+.task-hurry:hover {
+  background-color: #cac491;
+}
+
+.task-non-urgent {
+  background-color: #bee9f7;
+}
+
+.task-non-urgent:hover {
+  background-color: #99becb;
+}
+
+.trash-icon {
+  float: right;
+  display: none;
+}
+
+.task:hover > .trash-icon {
+  display: block;
+}
+
+mat-checkbox {
+  margin-left: 1%;
+  margin-right: 1%;
+  box-sizing: content-box;
 }

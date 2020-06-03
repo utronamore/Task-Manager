@@ -21,6 +21,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {TaskDeleteComponent} from './task-delete/task-delete.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     FormsModule,
     ReactiveFormsModule,
     DragDropModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule
   ],
   providers: [TaskStorageService],
   bootstrap: [AppComponent]

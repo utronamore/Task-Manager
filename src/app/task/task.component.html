@@ -1,20 +1,18 @@
 <div *ngIf="selected == false" (click)="openPopup()"
      class="task {{changeColor(task)}}"
-     [ngClass]="{'task-done' : task.done}">
-
-  <mat-checkbox
-    (click)="$event.stopPropagation()"
-    [(ngModel)]="task.done"
+>
+  <mat-checkbox color="warn"
+                (click)="$event.stopPropagation()"
+                [(ngModel)]="task.done"
   >
   </mat-checkbox>
-  <span>{{task.header}}
-    <br>
-    {{task.deadline|date|uppercase}}
-  </span>
-
-  <button mat-button (click)="openDialog()"
-          (click)=$event.stopPropagation()>Delete
-  </button>
+  <span [ngClass]="{'task-done' : task.done}">{{task.header}}</span>
+  <br>
+  <mat-icon>today</mat-icon>
+  {{task.deadline|date|uppercase}}
+    <mat-icon class="trash-icon" mat-button (click)="openDialog()"
+            (click)=$event.stopPropagation()>delete
+  </mat-icon>
 </div>
 
 <ng-container *ngIf="selected == true">
@@ -41,3 +39,5 @@
     </a>
   </div>
 </ng-container>
+
+
