@@ -20,6 +20,7 @@ export class TaskCreateComponent implements OnInit {
   constructor(private taskStorageService: TaskStorageService) {
   }
 
+  startDate = new Date();
   selected = false;
   currentId = 1;
   headerControl = new FormControl('', [Validators.required]);

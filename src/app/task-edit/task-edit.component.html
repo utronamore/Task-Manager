@@ -1,21 +1,23 @@
 <ng-container *ngIf="selected">
-  <div class="popup">
-    <mat-form-field appearance="fill">
+  <div class="form">
+    <mat-form-field class="input" appearance="fill">
       <mat-label>Task</mat-label>
       <input matInput [(ngModel)]="task.header">
     </mat-form-field>
     <br>
-    <mat-form-field appearance="fill">
+    <mat-form-field class="input" appearance="fill">
       <mat-label>Description</mat-label>
       <input matInput [(ngModel)]="task.description">
     </mat-form-field>
     <br>
-    <mat-form-field>
+    <mat-form-field class="date-input" appearance="fill">
       <mat-label>Deadline</mat-label>
       <input matInput [matDatepicker]="datepicker" [(ngModel)]="task.deadline">
       <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
       <mat-datepicker #datepicker></mat-datepicker>
     </mat-form-field>
-    <br>
+    <a routerLink="/tasks/{{task.taskId}}" routerLinkActive="active-link">
+      <button class="task-button">Save<mat-icon class="button-icons">check</mat-icon></button>
+    </a>
   </div>
 </ng-container>

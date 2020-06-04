@@ -1,48 +1,105 @@
 .task {
-  border: 1px solid black;
-  margin: 5px 0px;
+  border: 1px solid;
+  cursor: pointer;
+  width: 500px;
+  max-width: 100%;
+  min-height: 60px;
+  display: block;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  font-size: 15pt;
 }
 
 .task-done {
   text-decoration: line-through;
 }
 
-.closeButton {
-  position:absolute; top:0; right:0;
-  border: 0;
-  background: none;
-}
-
-.background {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  background: rgba(0,0,0,0.7);
-}
-
-.popup {
-  position: fixed;
+.form {
   width: 50%;
   left: 25%;
   top: 25%;
   background: #eeeeee;
+  border-radius: 7px;
 }
 
 button:hover {
-  color: #af5b5e;
   cursor: pointer;
 }
 
-.overdue{
-  background-color: darksalmon;
+.task-overdue {
+  background-color: #e9967a;
 }
 
-.hurry{
-  background-color: palegoldenrod;
+.task-overdue:hover {
+  background-color: #c27664;
 }
 
-.non-urgent{
-  background-color: lightblue ;
+.task-hurry {
+  background-color: #eee8aa;
+}
+
+.task-hurry:hover {
+  background-color: #cac491;
+}
+
+.task-non-urgent {
+  background-color: #bee9f7;
+}
+
+.task-non-urgent:hover {
+  background-color: #99becb;
+}
+
+.trash-icon {
+  float: right;
+  display: none;
+}
+
+.task:hover > .trash-icon {
+  display: block;
+}
+
+mat-checkbox {
+  margin-left: 1%;
+  margin-right: 1%;
+  box-sizing: content-box;
+}
+
+.input {
+  margin-right: 10px;
+  margin-left: 10px;
+  max-width: 100%;
+  height: 60px;
+  display: block;
+  overflow: hidden;
+  font-size: 15pt;
+}
+
+.date-input {
+  margin-right: 10px;
+  margin-left: 10px;
+  max-width: 40%;
+  min-height: 40px;
+  display: block;
+  overflow: hidden;
+  font-size: 15pt;
+}
+
+.task-button {
+  border: 1px solid;
+  cursor: pointer;
+  width: 300px;
+  max-width: 40%;
+  min-height: 60px;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  font-size: 15pt;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.button-icons {
+  margin-left: 10px;
 }
