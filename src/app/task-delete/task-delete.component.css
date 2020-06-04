@@ -1,5 +1,17 @@
-.closeButton {
-  position:absolute; top:0; right:0;
-  border: 0;
-  background: none;
+.delete-button {
+  border: 1px solid;
+  cursor: pointer;
+  width: 100px;
+  max-width: 40%;
+  min-height: 30px;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  font-size: 15pt;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 15pt;
 }

@@ -1,43 +1,45 @@
 <div *ngIf="selected == false" (click)="openPopup()"
      class="task {{changeColor(task)}}"
-     [ngClass]="{'task-done' : task.done}">
-
-  <mat-checkbox
-    (click)="$event.stopPropagation()"
-    [(ngModel)]="task.done"
+>
+  <mat-checkbox color="warn"
+                (click)="$event.stopPropagation()"
+                [(ngModel)]="task.done"
   >
   </mat-checkbox>
-  <span>{{task.header}}
-    <br>
-    {{task.deadline|date|uppercase}}
-  </span>
-
-  <button mat-button (click)="openDialog()"
-          (click)=$event.stopPropagation()>Delete
-  </button>
+  <span [ngClass]="{'task-done' : task.done}">{{task.header}}</span>
+  <br>
+  <mat-icon>today</mat-icon>
+  {{task.deadline|date|uppercase}}
+  <mat-icon class="trash-icon" mat-button (click)="openDialog()"
+            (click)=$event.stopPropagation()>delete
+  </mat-icon>
 </div>
 
 <ng-container *ngIf="selected == true">
-  <div>
-    <mat-form-field appearance="fill">
+  <div class="form">
+    <mat-form-field class="input" appearance="fill">
       <mat-label>Task</mat-label>
-      <span>{{task.header}}}</span>>
+      <span>{{task.header}}</span>
     </mat-form-field>
-    <br>
-    <mat-form-field appearance="fill">
+    <mat-divider></mat-divider>
+    <mat-form-field class="input" appearance="fill">
       <mat-label>Description</mat-label>
       <span>{{task.description}}</span>
     </mat-form-field>
-    <br>
-    <mat-form-field>
+    <mat-divider></mat-divider>
+    <mat-form-field class="date-input" appearance="fill">
       <mat-label>Deadline</mat-label>
-      <input matInput [matDatepicker]="datepicker">{{task.deadline|date|uppercase}}
+      <input matInput [matDatepicker]="datepicker">
+      <mat-icon>today</mat-icon>
+      {{task.deadline|date|uppercase}}
       <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
       <mat-datepicker #datepicker></mat-datepicker>
     </mat-form-field>
-    <br>
     <a routerLink="/tasks/{{task.taskId}}/edit" routerLinkActive="active-link">
-      <button>Edit</button>
+      <button class="task-button">Back to List<mat-icon class="button-icons">reply</mat-icon></button>
+      <button class="task-button">Edit<mat-icon class="button-icons">create</mat-icon></button>
     </a>
   </div>
 </ng-container>
+
+

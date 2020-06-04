@@ -68,8 +68,14 @@ export class TaskComponent implements OnInit {
     const deadline = moment(task.deadline);
     const diff = deadline.diff(today, 'days');
 
-    if (diff < 1) { return 'overdue'; }
-    if (diff <= 3) { return 'hurry'; } else { return 'non-urgent'; }
+    if (diff < 1) {
+      return 'task-overdue';
+    }
+    if (diff <= 3) {
+      return 'task-hurry';
+    } else {
+      return 'task-non-urgent';
+    }
   }
 }
 
