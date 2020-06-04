@@ -29,10 +29,11 @@
       <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
       <mat-datepicker #datepicker [startAt]="startDate"></mat-datepicker>
     </mat-form-field>
-    <br>
+    <button [disabled]="headerControl.invalid"
+            class="popup-add-button"
+            (click)="addTaskToStorage(); closePopup(); clearForm()">Add
+    </button>
 
-    <button [disabled]="headerControl.invalid" (click)="addTaskToStorage(); closePopup(); clearForm() ">Add</button>
-
-    <button class="closeButton" (click)="closePopup()">X</button>
+    <button class="close-button" (click)="closePopup()">X</button>
   </div>
 </ng-container>

@@ -22,6 +22,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {TaskDeleteComponent} from './task-delete/task-delete.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import {MatIconModule} from '@angular/material/icon';
     ReactiveFormsModule,
     DragDropModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    MatDividerModule
   ],
   providers: [TaskStorageService],
   bootstrap: [AppComponent]
