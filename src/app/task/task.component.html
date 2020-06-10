@@ -1,5 +1,5 @@
 <div *ngIf="selected == false" (click)="openPopup()"
-     class="task {{changeColor(task)}}"
+     class="task" [appTaskColor]="task.deadline"
 >
   <mat-checkbox color="warn"
                 (click)="$event.stopPropagation()"
@@ -36,8 +36,12 @@
       <mat-datepicker #datepicker></mat-datepicker>
     </mat-form-field>
     <a routerLink="/tasks/{{task.taskId}}/edit" routerLinkActive="active-link">
-      <button class="task-button">Back to List<mat-icon class="button-icons">reply</mat-icon></button>
-      <button class="task-button">Edit<mat-icon class="button-icons">create</mat-icon></button>
+      <button class="task-button">Back to List
+        <mat-icon class="button-icons">reply</mat-icon>
+      </button>
+      <button class="task-button">Edit
+        <mat-icon class="button-icons">create</mat-icon>
+      </button>
     </a>
   </div>
 </ng-container>

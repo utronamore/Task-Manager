@@ -4,7 +4,6 @@ import {Router, ActivatedRoute} from '@angular/router';
 import {TaskStorageService} from '../task-storage.service';
 import {MatDialog} from '@angular/material/dialog';
 import {TaskDeleteComponent} from '../task-delete/task-delete.component';
-import * as moment from 'moment';
 
 @Component({
   selector: 'app-task',
@@ -61,21 +60,6 @@ export class TaskComponent implements OnInit {
       this.getTaskFromStorage();
     }
     console.log(this.task);
-  }
-
-  changeColor(task): string {
-    const today = moment();
-    const deadline = moment(task.deadline);
-    const diff = deadline.diff(today, 'days');
-
-    if (diff < 1) {
-      return 'task-overdue';
-    }
-    if (diff <= 3) {
-      return 'task-hurry';
-    } else {
-      return 'task-non-urgent';
-    }
   }
 }
 

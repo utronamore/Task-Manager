@@ -23,6 +23,7 @@ import {TaskDeleteComponent} from './task-delete/task-delete.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
+import { TaskColorDirective } from './task-color.directive';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import {MatDividerModule} from '@angular/material/divider';
     CloseQuestionComponent,
     TaskComponent,
     TaskEditComponent,
-    TaskDeleteComponent
+    TaskDeleteComponent,
+    TaskColorDirective
   ],
   imports: [
     BrowserModule,
