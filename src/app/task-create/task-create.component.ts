@@ -3,7 +3,8 @@ import {Task} from 'src/app/task';
 import {TaskStorageService} from 'src/app/task-storage.service';
 import {MatInput} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {FormControl, Validators} from '@angular/forms';
+import {FormControl, FormGroup, NgForm, Validators, ReactiveFormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-task-create',
@@ -12,6 +13,8 @@ import {FormControl, Validators} from '@angular/forms';
 })
 
 export class TaskCreateComponent implements OnInit {
+
+  createControls: FormGroup;
 
   @Input() header: string;
   @Input() description: string;
@@ -38,12 +41,6 @@ export class TaskCreateComponent implements OnInit {
     console.log('addTaskPressed');
   }
 
-  getErrorMessage() {
-    if (this.headerControl.hasError('required')) {
-      return 'You need enter a value';
-    }
-  }
-
   clearForm() {
     this.header = '';
     this.description = '';
@@ -51,6 +48,10 @@ export class TaskCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.createControls = new FormGroup({
+      header: new FormControl('', [Validators.required]),
+      description: new FormControl(''),
+      deadline: new FormControl('')
+    });
   }
-
 }
