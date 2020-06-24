@@ -1,5 +1,6 @@
-<div *ngIf="selected == false" (click)="openPopup()"
-     class="task" [appTaskColor]="task.deadline"
+<div *ngIf="selected == false"
+     class="task-in-list"
+     [appTaskColor]="task.deadline"
 >
   <mat-checkbox color="warn"
                 (click)="$event.stopPropagation()"
@@ -35,10 +36,12 @@
       <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
       <mat-datepicker #datepicker></mat-datepicker>
     </mat-form-field>
-    <a routerLink="/tasks/{{task.taskId}}/edit" routerLinkActive="active-link">
+    <a routerLink="/tasks" routerLinkActive="active-link">
       <button class="task-button">Back to List
         <mat-icon class="button-icons">reply</mat-icon>
       </button>
+    </a>
+    <a routerLink="/tasks/{{task.taskId}}/edit" routerLinkActive="active-link">
       <button class="task-button">Edit
         <mat-icon class="button-icons">create</mat-icon>
       </button>

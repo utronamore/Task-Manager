@@ -1,4 +1,8 @@
-<app-task-create></app-task-create>
+<button class="add-button" (click)="openDialog()">
+  <mat-icon>add</mat-icon>
+  Add Task
+</button>
+
 <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
   <app-task class="example-box" cdkDrag *ngFor="let t of tasks; let idx = index"
             [task]=t

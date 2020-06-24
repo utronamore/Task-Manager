@@ -23,15 +23,6 @@ export class TaskComponent implements OnInit {
   @Input() task: Task;
   selected = false;
 
-  /* Эти функции возможно стоит удалить  */
-  openPopup(): void {
-    this.selected = true;
-  }
-
-  closePopup(): void {
-    this.selected = false;
-  }
-
   getTaskFromStorage(): void {
     this.route.paramMap.subscribe(params => {
       this.taskStorageService.getTaskFromStorage(+params.get('taskId'))
@@ -42,7 +33,6 @@ export class TaskComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(TaskDeleteComponent);
-
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
       if (result) {
