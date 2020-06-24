@@ -23,22 +23,6 @@ export class TaskStorageService {
     return this.tasks;
   }
 
-  moveTask(index: number, direction: boolean): void {
-    if (direction && (index !== 0
-    )) {
-      // move up
-      const tmp: Task = this.tasks[index];
-      this.tasks[index] = this.tasks[index - 1];
-      this.tasks[index - 1] = tmp;
-    } else if (!direction && (index !== this.tasks.length - 1
-    )) {
-      // move down
-      const tmp: Task = this.tasks[index];
-      this.tasks[index] = this.tasks[index + 1];
-      this.tasks[index + 1] = tmp;
-    }
-  }
-
   deleteTask(task): void {
     const index = this.tasks.indexOf(task);
     this.tasks.splice(index, 1);
