@@ -1,10 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Task} from 'src/app/task';
 import {TaskStorageService} from 'src/app/task-storage.service';
-import {MatInput} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {FormControl, FormGroup, NgForm, Validators, ReactiveFormsModule } from '@angular/forms';
-
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-task-create',
@@ -24,27 +20,11 @@ export class TaskCreateComponent implements OnInit {
   }
 
   startDate = new Date();
-  selected = false;
   currentId = 1;
-  headerControl = new FormControl('', [Validators.required]);
-
-  openPopup(): void {
-    this.selected = true;
-  }
-
-  closePopup(): void {
-    this.selected = false;
-  }
 
   addTaskToStorage(): void {
     this.taskStorageService.addTask(this.header, this.description, this.currentId, this.deadline);
     console.log('addTaskPressed');
-  }
-
-  clearForm() {
-    this.header = '';
-    this.description = '';
-    this.deadline = null;
   }
 
   ngOnInit(): void {

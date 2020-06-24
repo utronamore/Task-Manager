@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {TaskStorageService} from './task-storage.service';
 import {TaskListComponent} from './task-list/task-list.component';
-import { CloseQuestionComponent } from './close-question/close-question.component';
 import {TaskCreateComponent} from './task-create/task-create.component';
 import {TaskEditComponent} from './task-edit/task-edit.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -30,7 +29,6 @@ import { TaskColorDirective } from './task-color.directive';
     AppComponent,
     TaskListComponent,
     TaskCreateComponent,
-    CloseQuestionComponent,
     TaskComponent,
     TaskEditComponent,
     TaskDeleteComponent,

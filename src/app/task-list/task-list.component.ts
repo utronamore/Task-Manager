@@ -1,8 +1,9 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Task} from 'src/app/task';
+import {MatDialog} from '@angular/material/dialog';
 import {TaskStorageService} from '../task-storage.service';
-import {Router, ActivatedRoute, ParamMap} from '@angular/router';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import {TaskCreateComponent} from '../task-create/task-create.component';
 
 @Component({
   selector: 'app-task-list',
@@ -18,7 +19,7 @@ export class TaskListComponent implements OnInit {
   tasks: Task[];
 
   constructor(private taskStorageService: TaskStorageService,
-              private route: ActivatedRoute
+              public dialog: MatDialog
   ) {
   }
 
@@ -28,6 +29,13 @@ export class TaskListComponent implements OnInit {
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.tasks, event.previousIndex, event.currentIndex);
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(TaskCreateComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
   ngOnInit() {
