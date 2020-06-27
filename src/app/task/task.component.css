@@ -16,8 +16,6 @@
 }
 
 .form {
-  width: 50%;
-  left: 25%;
   top: 25%;
   background: #eeeeee;
   border-radius: 7px;
@@ -56,7 +54,7 @@ button:hover {
   display: none;
 }
 
-.task:hover > .trash-icon {
+.task-in-list:hover > .trash-icon {
   display: block;
 }
 
