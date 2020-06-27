@@ -54,7 +54,7 @@ button:hover {
   display: none;
 }
 
-.task:hover > .trash-icon {
+.task-in-list:hover > .trash-icon {
   display: block;
 }
 
