@@ -1,0 +1,11 @@
+h1 {
+  width: 250px;
+  margin: 0 auto;
+  height: 50px;
+  line-height: 50px;
+}
+
+.task-list {
+  width: 500px;
+  margin: 0 auto;
+}
